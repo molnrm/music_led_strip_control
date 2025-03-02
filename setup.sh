@@ -110,7 +110,7 @@ sudo apt-get update -qq && sudo apt-get upgrade -qqy
 # git: For cloning the MLSC repository.
 # libatlas-base-dev: Required for Numpy module.
 # portaudio19-dev: Audio drivers.
-sudo apt-get -y --no-install-recommends install git libatlas-base-dev portaudio19-dev python3 python3-dev python3-pip python3-venv
+sudo apt-get -y --no-install-recommends install git libatlas-base-dev portaudio19-dev python3 python3-dev python3-pip python3-venv build-essential
 
 prompt -s "\nPackages updated and installed."
 
@@ -147,7 +147,7 @@ if [[ -d $PROJ_DIR ]]; then
         fi
 	    sudo mv -T $PROJ_DIR "${PROJ_DIR}_bak"
         prompt -s "\nNew backup of ${PROJ_NAME} created."
-        sudo git clone --depth 1 --branch $GIT_BRANCH https://github.com/TobKra96/music_led_strip_control.git
+        sudo git clone --depth 1 --branch $GIT_BRANCH https://github.com/molnrm/music_led_strip_control.git
         prompt -s "\nConfig is stored in .mlsc, in the same directory as the MLSC installation."
         if [[ -f $SERVICE_DIR ]]; then
             if [[ $systemctl_status == 'active' ]]; then
@@ -157,7 +157,7 @@ if [[ -d $PROJ_DIR ]]; then
         fi
     fi
 else
-    sudo git clone --depth 1 --branch $GIT_BRANCH https://github.com/TobKra96/music_led_strip_control.git
+    sudo git clone --depth 1 --branch $GIT_BRANCH https://github.com/molnrm/music_led_strip_control.git
 fi
 
 # Install/update modules from requirements.txt.
